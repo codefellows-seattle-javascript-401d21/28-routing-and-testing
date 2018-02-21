@@ -1,6 +1,8 @@
 import React from 'react';
 import NoteCreateForm from '../note-create-form/index';
 import NoteList from '../note-list/index';
+import uuidv1 from 'uuid/v1'
+
 
 class Dashboard extends React.Component{
    constructor(props){
@@ -17,7 +19,7 @@ class Dashboard extends React.Component{
    }
   handleAddNote(note){
     note.editing = false;
-    note.id = Math.random();
+    note.id = uuidv1();
     note.completed = false;
 
     this.setState(previousState => {
