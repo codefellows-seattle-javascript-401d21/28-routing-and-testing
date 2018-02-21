@@ -1,69 +1,62 @@
 import React from 'react';
 
-class ExpenseForm extends React.Component{
+class NoteCreateForm extends React.Component{
   constructor(props){
-    super(props);// Vinicio - we HAVE to call this super()
+    super(props);
     this.state = {
-      name : '',
-      price : 0,
+      title : '',
+      content : '',
     };
-    //----------------------------------------------------
-    // Binding Handlers
-    //----------------------------------------------------
-    let memberFunctions = Object.getOwnPropertyNames(ExpenseForm.prototype);
+
+    let memberFunctions = Object.getOwnPropertyNames(NoteCreateForm.prototype);
     for(let functionName of memberFunctions){
       if(functionName.startsWith('handle')){
         this[functionName] = this[functionName].bind(this);
       }
     }
-    //----------------------------------------------------
+
   }
-  //------------------------------------------------------
-  // Member Function
-  //------------------------------------------------------
+
   handleSubmit(event){
     event.preventDefault();
-    this.props.handleAddExpense(this.state);
-    // vinicio - clearing the form
+    this.props.handleAddNote(this.state);
+
     this.setState({
-      name : '',
-      price : 0,
+      title : '',
+      content : '',
     });
   }
 
   handleChange(event){
     let {name,value} = event.target;
-    // vinicio - name will be the name of the input we are working with
 
     this.setState({
       [name]: value,
     });
   }
 
-  //------------------------------------------------------
-  // Lifecycle hooks
-  //------------------------------------------------------
+
   render(){
     return(
-      <form className='expense-form' onSubmit={this.handleSubmit}>
+      <form className='note-form' onSubmit={this.handleSubmit}>
         <input
           type='text'
-          name='name'
-          placeholder='name'
-          value={this.state.name}
+          name='title'
+          placeholder='title'
+          value={this.state.title}
           onChange={this.handleChange}  
         />
         <input
-          type='number'
-          name='price'
-          placeholder='price'
-          value={this.state.price}
+          type='text'
+          name='content'
+          placeholder='content'
+          value={this.state.content}
           onChange={this.handleChange}  
         />
-        <button type='submit'> create expense </button>
+        <button type='submit'> create note </button>
       </form>
     );
   }
 };
 
-export default ExpenseForm;
+export default NoteCreateForm;
