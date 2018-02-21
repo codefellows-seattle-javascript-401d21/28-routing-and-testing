@@ -23,7 +23,6 @@ class Dashboard extends React.Component{
   //------------------------------------------------------
   handleAddNote(note){
     note.id = Math.random();
-    note.
 
     this.setState(previousState => {
       return {notes :[...previousState.notes,note]};
@@ -42,7 +41,7 @@ class Dashboard extends React.Component{
         <ul>
           {
             this.state.notes.map((note,index) =>
-              <li key={index}>{note.name}:${note.price}</li>
+              <li key={index}>{note.title}:{note.content}</li>
             )
           }
         </ul>

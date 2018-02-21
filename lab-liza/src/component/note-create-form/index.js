@@ -24,7 +24,7 @@ class NoteCreateForm extends React.Component{
   //------------------------------------------------------
   handleSubmit(event){
     event.preventDefault();
-    this.props.handleAddExpense(this.state);
+    this.props.handleAddNote(this.state);
     // vinicio - clearing the form
     this.setState({
       title :'',
@@ -48,7 +48,7 @@ class NoteCreateForm extends React.Component{
   //------------------------------------------------------
   render(){
     return(
-      <form className='expense-form' onSubmit={this.handleSubmit}>
+      <form className='note-form' onSubmit={this.handleSubmit}>
         <input
           type='text'
           name='title'
