@@ -35,6 +35,7 @@ class Dashboard extends React.Component {
     return (
       <div>
         <h1>Dashboard</h1>
+        <p>Back to <a href='/'>"/Landing"</a></p>
         <NoteForm handleAddNote={this.handleAddNote}/>
         <NoteList remove={this.handleRemove} notes={this.state.notes} />
       </div>
