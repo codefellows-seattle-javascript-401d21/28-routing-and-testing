@@ -1,11 +1,11 @@
 import React from 'react';
-import ExpenseForm from '../expense-form/expense-form';
+import NoteCreateForm from '../note-create-form/index.js';
 
 class Dashboard extends React.Component{
    constructor(props){
      super(props);
      this.state = {
-       expenses: [],
+       notes: [],
      };
     //----------------------------------------------------
     // Binding Handlers
@@ -21,28 +21,28 @@ class Dashboard extends React.Component{
   //------------------------------------------------------
   // Member Function
   //------------------------------------------------------
-  handleAddExpense(expense){
-    expense.createdOn = new Date();
-    expense.id = Math.random();
+  handleAddNote(note){
+    note.id = Math.random();
+    note.
 
     this.setState(previousState => {
-      return {expenses :[...previousState.expenses,expense]};
+      return {notes :[...previousState.notes,note]};
     });
   }
   //------------------------------------------------------
   // Hooks
   //------------------------------------------------------
 
-  
+
   render(){
     return(
       <div>
         <h1>Dashboard</h1>
-        <ExpenseForm handleAddExpense={this.handleAddExpense}/>
+        <NoteCreateForm handleAddNote={this.handleAddNote}/>
         <ul>
           {
-            this.state.expenses.map((expense,index) =>
-              <li key={index}>{expense.name}:${expense.price}</li>
+            this.state.notes.map((note,index) =>
+              <li key={index}>{note.name}:${note.price}</li>
             )
           }
         </ul>
