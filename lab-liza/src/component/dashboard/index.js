@@ -1,5 +1,6 @@
 import React from 'react';
 import NoteCreateForm from '../note-create-form/index.js';
+import NoteList from '../note-list/index.js';
 
 class Dashboard extends React.Component{
    constructor(props){
@@ -28,6 +29,14 @@ class Dashboard extends React.Component{
       return {notes :[...previousState.notes,note]};
     });
   }
+
+  handleRemoveNote(note){
+    note.id = Math.random();
+
+    this.setState(previousState => {
+      return {notes :[...previousState.notes,note]};
+    });
+  }
   //------------------------------------------------------
   // Hooks
   //------------------------------------------------------
@@ -38,13 +47,7 @@ class Dashboard extends React.Component{
       <div>
         <h1>Dashboard</h1>
         <NoteCreateForm handleAddNote={this.handleAddNote}/>
-        <ul>
-          {
-            this.state.notes.map((note,index) =>
-              <li key={index}>{note.title}:{note.content}</li>
-            )
-          }
-        </ul>
+        <NoteList notes={this.state.notes}/>
       </div>
     );
 
