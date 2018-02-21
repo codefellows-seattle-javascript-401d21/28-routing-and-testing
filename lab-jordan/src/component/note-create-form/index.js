@@ -2,7 +2,7 @@ import React from 'react';
 
 class NoteCreateForm extends React.Component{
   constructor(props){
-    super(props);// Vinicio - we HAVE to call this super()
+    super(props);
     this.state = {
       completed: false,
       content: '',
