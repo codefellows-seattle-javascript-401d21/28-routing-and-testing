@@ -9,7 +9,7 @@ class NoteList extends React.Component {
   render() {
     return (
       <ul className="note-list">
-        {this.props.notes.map(note => <NoteBuilder remove={this.props.remove} note={note}/>)}
+        {this.props.notes.map(note => <NoteBuilder key={note.id} remove={this.props.remove} note={note}/>)}
       </ul>
     );
   }

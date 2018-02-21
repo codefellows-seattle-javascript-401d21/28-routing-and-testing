@@ -11,7 +11,7 @@ class Dashboard extends React.Component {
     };
 
     let memberFunctions = Object.getOwnPropertyNames(Dashboard.prototype);
-    for (let functionName in memberFunctions) {
+    for (let functionName of memberFunctions) {
       if (functionName.startsWith('handle')) {
         this[functionName] = this[functionName].bind(this);
       }
@@ -23,7 +23,7 @@ class Dashboard extends React.Component {
     note.editing = false;
     note.completed = false;
     note.id = uuid('v1');
-    this.setState(state => ({ notes: [...state, note]}));
+    this.setState(state => ({ notes: [...state.notes, note]}));
   }
 
   handleRemove (e) {

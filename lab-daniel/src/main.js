@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import App from './components/app/app';
+import './styles/reset.scss';
+import './styles/main.scss';
 
 const container = document.createElement('div');
 document.body.appendChild(container);

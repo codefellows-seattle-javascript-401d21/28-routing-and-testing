@@ -5,11 +5,11 @@ require('jest');
 
 Enzyme.configure({ adapter: new Adapter() });
 
-import noteCreateForm from '../components/note-create-form/note-create-form';
+import NoteForm from '../components/note-form/note-form';
 
 describe('Dashboard', () => {
   it('Tests Initial State', () => {
-    let mountedDash = Enzyme.mount(<Dashboard />);
-    expect(mountedDash.state('title').toEqual([]));
+    let mountedDash = Enzyme.mount(<NoteForm />);
+    expect(mountedDash.state('title')).toEqual('');
   });
 });

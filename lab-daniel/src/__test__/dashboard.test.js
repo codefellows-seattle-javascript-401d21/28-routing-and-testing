@@ -10,6 +10,6 @@ import Dashboard from '../components/dashboard/dashboard';
 describe('Dashboard', () => {
   it('Tests Initial State', () => {
     let mountedDash = Enzyme.mount(<Dashboard />);
-    expect(mountedDash.state('expenses').toEqual([]));
+    expect(mountedDash.state('notes')).toEqual([]);
   });
 });

@@ -7,18 +7,20 @@ class NoteForm extends React.Component {
       title: '',
       content: '',
     };
-    let memberFunctions = Object.getOwnPropertyNames(NoteForm.prototype);
-    for (let functionName in memberFunctions) {
-      if (functionName.startsWith('handle')) {
-        this[functionName] = this[functionName].bind(this);
-      }
-    }
+    // let memberFunctions = Object.getOwnPropertyNames(NoteForm.prototype);
+    // for (let functionName of memberFunctions) {
+    //   if (functionName.startsWith('handle')) {
+    //     this[functionName] = this[functionName].bind(this);
+    //   }
+    // }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   //--------------
   // Handlers
   //--------------
   
-  handleSubmit (e) {
+  handleSubmit(e) {
     e.preventDefault();
     this.props.handleAddNote(this.state);
     this.setState({
@@ -26,9 +28,10 @@ class NoteForm extends React.Component {
       content: '',
     });
   }
-  handleChange (e) {
-    let {title, value} = e.target;
-    this.setState({[title]: value});
+
+  handleChange(e) {
+    let {name, value} = e.target;
+    this.setState({[name]: value});
   }
 
 
@@ -39,21 +42,22 @@ class NoteForm extends React.Component {
   //--------------
   render () {
     return (
-      <form className='expense_form' onSubmit={this.handleSubmit}>
+      <form className='note-form' onSubmit={this.handleSubmit}>
         <input
           type='text'
-          title='title'
+          name='title'
           placeholder='title'
           value={this.state.title}
           onChange={this.handleChange}
         />
         <input
           type='textarea'
-          title='content'
+          name='content'
           placeholder='content'
           value={this.state.content}
           onChange={this.handleChange}
         />
+        <button type="submit">Create Note</button>
       </form>
     );
   }
