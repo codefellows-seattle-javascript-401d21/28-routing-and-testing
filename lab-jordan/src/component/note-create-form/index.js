@@ -24,7 +24,7 @@ class NoteCreateForm extends React.Component{
   //------------------------------------------------------
   handleSubmit(event){
     event.preventDefault();
-    this.props.handleAddExpense(this.state);
+    this.props.handleAddNote(this.state);
     // vinicio - clearing the form
     this.setState({
       completed: false,
