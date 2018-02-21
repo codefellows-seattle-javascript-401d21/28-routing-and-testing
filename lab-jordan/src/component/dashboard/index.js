@@ -1,5 +1,5 @@
 import React from 'react';
-import NoteCreateForm from '../note-create-form-form/index.js';
+import NoteCreateForm from '../note-create-form/index.js';
 
 class Dashboard extends React.Component{
    constructor(props){
@@ -22,11 +22,11 @@ class Dashboard extends React.Component{
   // Member Function
   //------------------------------------------------------
   handleAddNote(note){
-    expense.createdOn = new Date();
-    expense.id = Math.random();
+    // note.createdOn = new Date();
+    note.id = Math.random();
 
     this.setState(previousState => {
-      return {notes :[...previousState.notes, note]};
+      return {notes: [...previousState.notes, note]};
     });
   }
   //------------------------------------------------------
