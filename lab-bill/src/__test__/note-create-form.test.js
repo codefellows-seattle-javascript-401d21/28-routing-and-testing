@@ -8,10 +8,10 @@ import NoteCreateForm from '../components/note-create-form/index';
 
 
 describe('NoteCreateForm', () => {
-    test('Testing initial state', () => {
-      let mountedForm = Enzyme.mount(<NoteCreateForm />);
+  test('Testing initial state', () => {
+    let mountedForm = Enzyme.mount(<NoteCreateForm />);
   
-      expect(mountedForm.state('title')).toEqual('');
-      expect(mountedForm.state('content')).toEqual('');
-    });
+    expect(mountedForm.state('title')).toEqual('');
+    expect(mountedForm.state('content')).toEqual('');
   });
+});

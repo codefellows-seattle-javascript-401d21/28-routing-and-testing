@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import App from './components/app/index'
+import App from './components/app/index';
 
 const container = document.createElement('div');
 document.body.appendChild(container);

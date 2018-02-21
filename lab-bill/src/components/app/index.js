@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter,Route,Link} from 'react-router-dom';
 import Dashboard from '../dashboard/index';
-import Landing from '../landing/index'
+import Landing from '../landing/index';
 
 class App extends React.Component{
   render(){
@@ -16,6 +16,6 @@ class App extends React.Component{
       </div>
     );
   }
-};
+}
 
 export default App;

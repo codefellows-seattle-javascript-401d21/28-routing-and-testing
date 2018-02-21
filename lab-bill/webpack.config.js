@@ -12,7 +12,7 @@ webpackConfig.output = {
 
 
 webpackConfig.plugins = [
-    new HTMLPlugin(),
+  new HTMLPlugin(),
 ];
 
 

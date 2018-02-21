@@ -1,22 +1,22 @@
 import React from 'react';
 import NoteCreateForm from '../note-create-form/index';
 import NoteList from '../note-list/index';
-import uuidv1 from 'uuid/v1'
+import uuidv1 from 'uuid/v1';
 
 
 class Dashboard extends React.Component{
-   constructor(props){
-     super(props);
-     this.state = {
-        notes: [],
-     };
+  constructor(props){
+    super(props);
+    this.state = {
+      notes: [],
+    };
     let memberFunctions = Object.getOwnPropertyNames(Dashboard.prototype);
     for(let functionName of memberFunctions){
       if(functionName.startsWith('handle')){
         this[functionName] = this[functionName].bind(this);
       }
     }
-   }
+  }
   handleAddNote(note){
     note.editing = false;
     note.id = uuidv1();
@@ -28,9 +28,9 @@ class Dashboard extends React.Component{
   }
 
   handleRemoveNote(noteId){
-      let notes = this.state.notes
-      notes.splice(notes.indexOf(noteId),1)
-      this.setState({notes: notes})
+    let notes = this.state.notes;
+    notes.splice(notes.indexOf(noteId),1);
+    this.setState({notes: notes});
   }
 
   
