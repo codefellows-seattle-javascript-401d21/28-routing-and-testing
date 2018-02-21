@@ -25,6 +25,11 @@ class Dashboard extends React.Component{
     });
   }
 
+  handleRemoveNote(noteId){
+      let notes = this.state.notes
+      notes.splice(notes.indexOf(noteId),1)
+      this.setState({notes: notes})
+  }
 
   
   render(){
@@ -32,7 +37,7 @@ class Dashboard extends React.Component{
       <div>
         <h1>Dashboard</h1>
         <NoteCreateForm handleAddNote={this.handleAddNote}/>
-        <NoteList notes={this.state.notes}/>
+        <NoteList notes={this.state.notes} handleRemoveNote={this.handleRemoveNote}/>
       </div>
     );
 
