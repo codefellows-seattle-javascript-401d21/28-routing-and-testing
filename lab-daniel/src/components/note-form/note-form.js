@@ -1,13 +1,13 @@
 import React from 'react';
 
-class ExpenseForm extends React.Component {
+class NoteForm extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      name: '',
-      price: 0,
+      title: '',
+      content: '',
     };
-    let memberFunctions = Object.getOwnPropertyNames(ExpenseForm.prototype);
+    let memberFunctions = Object.getOwnPropertyNames(NoteForm.prototype);
     for (let functionName in memberFunctions) {
       if (functionName.startsWith('handle')) {
         this[functionName] = this[functionName].bind(this);
@@ -20,15 +20,15 @@ class ExpenseForm extends React.Component {
   
   handleSubmit (e) {
     e.preventDefault();
-    this.props.handleAddExpense(this.state);
+    this.props.handleAddNote(this.state);
     this.setState({
-      name: '',
-      price: 0,
+      title: '',
+      content: '',
     });
   }
   handleChange (e) {
-    let {name, value} = e.target;
-    this.setState({[name]: value});
+    let {title, value} = e.target;
+    this.setState({[title]: value});
   }
 
 
@@ -42,16 +42,16 @@ class ExpenseForm extends React.Component {
       <form className='expense_form' onSubmit={this.handleSubmit}>
         <input
           type='text'
-          name='name'
-          placeholder='name'
-          value={this.state.name}
+          title='title'
+          placeholder='title'
+          value={this.state.title}
           onChange={this.handleChange}
         />
         <input
-          type='number'
-          name='price'
-          placeholder='price'
-          value={this.state.price}
+          type='textarea'
+          title='content'
+          placeholder='content'
+          value={this.state.content}
           onChange={this.handleChange}
         />
       </form>
@@ -59,4 +59,4 @@ class ExpenseForm extends React.Component {
   }
 }
 
-export default ExpenseForm;
+export default NoteForm;

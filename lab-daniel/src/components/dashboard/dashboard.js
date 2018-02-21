@@ -1,11 +1,13 @@
 import React from 'react';
-import ExpenseForm from '../expense-form/expense-form';
+import NoteForm from '../note-form/note-form';
+import NoteList from '../note-list/note-list';
+import uuid from 'uuid';
 
 class Dashboard extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      expenses: [],
+      notes: [],
     };
 
     let memberFunctions = Object.getOwnPropertyNames(Dashboard.prototype);
@@ -16,30 +18,25 @@ class Dashboard extends React.Component {
     }
   }
 
-  handleAddExpense (expense) {
-    expense.createdOn = new Date();
-    expense.id = Math.random();
-    this.setState(state => ({ expenses: [...state, expense]}));
+  handleAddNote (note) {
+    note.createdOn = new Date();
+    note.editing = false;
+    note.completed = false;
+    note.id = uuid('v1');
+    this.setState(state => ({ notes: [...state, note]}));
   }
 
   handleRemove (e) {
-    let ind = e.target.ind;
-    this.setState(state => {
-      let newState = Object.assign(state);
-      newState.expenses.splice(ind, 0);
-    });
+    let id = e.target.id;
+    this.setState({notes: this.state.notes.filter(note => note.id !== id)});
   }
 
   render () {
     return (
       <div>
         <h1>Dashboard</h1>
-        <ExpenseForm handleAddExpense={this.handleAddExpense}/>
-        <ul>
-          {
-            this.state.expenses.map((exp, ind) => <li key={ind}><p>Expense Name: {exp.name}</p><p>Price: ${exp.price}</p><button ind={ind} onClick={this.handleRemove}>Remove</button></li>)
-          }
-        </ul>
+        <NoteForm handleAddNote={this.handleAddNote}/>
+        <NoteList remove={this.handleRemove} notes={this.state.notes} />
       </div>
     );
   }
