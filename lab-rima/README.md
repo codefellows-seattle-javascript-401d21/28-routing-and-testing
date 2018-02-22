@@ -1,12 +1,17 @@
 ## To Do List
 Takes an user input for title and content.
-Returns a list of to do.
+Displays a list of to do.
 
 #### Usage
 1. Clone this repo in your desired location.
-2. Run.
+2. Run
 ```
 npm install
+
+```
+3. Run
+```
 npm run build
 ```
-3. Open the file called build/index.html in your browser.
+4. In your browser, go to localhost:8080. This tells you about the To Do List.
+5. Go to localhost:8080/dashboard to actually create a to do list. 

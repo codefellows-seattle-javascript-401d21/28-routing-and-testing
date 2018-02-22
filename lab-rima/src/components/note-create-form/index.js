@@ -59,7 +59,11 @@ class NoteForm extends React.Component{
           onChange={this.handleChange}
           placeholder="Enter a content"/>
 
-        <button type="submit">Save</button>
+        <button
+          className="save"
+          type="submit">
+          Save
+        </button>
       </form>
     );
   }

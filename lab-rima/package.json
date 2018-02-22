@@ -4,6 +4,7 @@
   "description": "This is an assignment for cf-401",
   "main": "webpack.config.js",
   "scripts": {
+    "lint": "eslint .",
     "build": "webpack",
     "test": "jest --verbose",
     "watch": "webpack-dev-server --inline --hot --port 8888"
@@ -25,14 +26,16 @@
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
     "resolve-url-loader": "^2.2.1",
-    "superagent": "^3.8.2",
     "uuid": "^3.2.1",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.1"
   },
   "devDependencies": {
+    "css-loader": "^0.28.9",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "jest": "^22.4.0"
+    "jest": "^22.4.0",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6"
   }
 }
