@@ -1,5 +1,7 @@
 import React from 'react';
-import ExpenseForm from '../NoteCreateForm/index';
+import NoteCreateFrom from '../note-create-form/index';
+import NoteList from '../note-list/index';
+import uuid from 'uuid/v1';
 
 class Dashboard extends React.Component{
    constructor(props){
@@ -14,36 +16,30 @@ class Dashboard extends React.Component{
         this[functionName] = this[functionName].bind(this);
       }
     }
-
    }
 
-  handleAddNotes(notes){
-    notes.createdOn = new Date();
-    notes.id = Math.random();
-    notes.completed = false;
-    notes.editing = false;
-
+   handleAddNotes(notes){
+    notes.id = uuid();
+    notes.publishedOn = new Date();
     this.setState(previousState => {
-      return {notes :[...previousState.notes,notes]};
+      return {notes: [...previousState.notes, notes]};
     });
   }
 
+  handleRemoveNotes(event){
+   let id = event.target.value
+   this.setState({
+     notes: this.state.notes.filter(note => note.id !== id)
+   })
+  }
+ 
   
   render(){
     return(
       <div>
         <h1>Dashboard</h1>
-        <ExpenseForm handleAddNotes={this.handleAddNotes}/>
-        <ul>
-          {
-            this.state.notes.map((notes,index) =>
-              <li key={index}>
-                <h1>{notes.title}</h1>
-                <p> {notes.content}</p>    
-              </li>
-            )
-          }
-        </ul>
+        <NoteCreateFrom handleAddNotes={this.handleAddNotes}/>
+        <NoteList noteArray={this.state.notes} handleRemoveNotes={this.handleRemoveNotes}/>
       </div>
     );
 

@@ -1,20 +1,21 @@
 import React from 'react';
 
-class ExpenseForm extends React.Component{
+class NoteCreateFrom extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      title : '',
-      content : '',
+      title: '',
+      content: '',
+      completed: false,
+      editing: false,
     };
 
-    let memberFunctions = Object.getOwnPropertyNames(ExpenseForm.prototype);
+    let memberFunctions = Object.getOwnPropertyNames(NoteCreateFrom.prototype);
     for(let functionName of memberFunctions){
       if(functionName.startsWith('handle')){
         this[functionName] = this[functionName].bind(this);
       }
     }
-
   }
 
   handleSubmit(event){
@@ -22,25 +23,23 @@ class ExpenseForm extends React.Component{
     this.props.handleAddNotes(this.state);
     //resets the form to empty
     this.setState({
-      title : '',
+      title: '',
       content: '',
+      completed: false,
+      editing: false,
     });
   }
 
   handleChange(event){
     let {name,value} = event.target;
-
     this.setState({
       [name]: value,
     });
   }
 
-  //------------------------------------------------------
-  // Lifecycle hooks
-  //------------------------------------------------------
   render(){
     return(
-      <form className='expense-form' onSubmit={this.handleSubmit}>
+      <form className='note_input_form' onSubmit={this.handleSubmit}>
         <input
           type='text'
           name='title'
@@ -61,4 +60,4 @@ class ExpenseForm extends React.Component{
   }
 };
 
-export default ExpenseForm;
+export default NoteCreateFrom;
