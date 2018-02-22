@@ -1,6 +1,6 @@
 import React from 'react';
 import NoteCreateForm from '../note-create/index';
-// import NoteList from '../note-list/index';
+import NoteList from '../note-list/index';
 import uuid from 'uuid';
 
 class Dashboard extends React.Component {
@@ -24,8 +24,11 @@ class Dashboard extends React.Component {
     this.setState(prev => ({notes: [...prev.notes, note]}));
   }
 
-  handleRemoveNote(note) {
-    this.setState(prev => ({notes: prev.notes.filter(n => n.id !== note.id)}));
+  handleRemoveNote(e) {
+    const culledNotes = this.state.notes.filter(n => n.id !== e.target.id);
+    this.setState({
+      notes: culledNotes,
+    });
   }
 
   render() {
@@ -33,6 +36,7 @@ class Dashboard extends React.Component {
       <div>
         <h1>Dashboard</h1>
         <NoteCreateForm handleAddNote={this.handleAddNote} />
+        <NoteList handleRemoveNote={this.handleRemoveNote} notes={this.state.notes} />
       </div>
     );
   }
