@@ -47,6 +47,7 @@ class NoteCreateForm extends React.Component{
           onChange={this.handleChange}  
         />
         <input
+          className='content-input'
           type='text'
           name='content'
           placeholder='content'

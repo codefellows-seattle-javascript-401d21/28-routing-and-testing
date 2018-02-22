@@ -13,7 +13,9 @@ class NoteItem extends React.Component{
 
   render(){
     return(
-      <li>{this.props.title}:{this.props.content}
+      <li>
+        <h2>{this.props.title}</h2>
+        <p>{this.props.content}</p>
         <button type='submit' onClick={this.handleClick}> delete </button>
       </li>
     );
