@@ -7,11 +7,12 @@ class NoteList extends React.Component{
   }
 
   render(){
+    console.log(this.props);
     return(
       <div className="note-list">
         <ul>
           {this.props.notes.map(note => {
-            <NoteItem note={note} />
+            return <NoteItem note={note} handleRemoveNote={this.props.handleRemoveNote} />
           })}
         </ul>
       </div>

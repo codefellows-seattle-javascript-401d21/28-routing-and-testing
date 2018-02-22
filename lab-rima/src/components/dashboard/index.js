@@ -1,6 +1,7 @@
 import React from 'react';
 import NoteForm from '../note-create-form/index';
 import NoteList from '../note-list/index';
+import uuidv1 from 'uuid/v1';
 
 
 class Dashboard extends React.Component{
@@ -20,10 +21,9 @@ class Dashboard extends React.Component{
   }
 
   handleAddNote(note){
-    note.id = uuid.v1();
+    note.id = uuidv1();
     note.completed = true;
     note.editing = false;
-
     this.setState(previousState => {
       return {notes: [...previousState.notes, note]};
     });
