@@ -4,6 +4,7 @@
   "description": "28: To Do - Create an app for creating, editing and displaying notes",
   "main": "webpack.config.js",
   "scripts": {
+    "test": "jest --verbose -i",
     "build": "webpack",
     "watch": "webpack-dev-server --inline --hot"
   },
