@@ -40,6 +40,7 @@ class NoteCreateFrom extends React.Component{
   render(){
     return(
       <form className='note_input_form' onSubmit={this.handleSubmit}>
+      <div className='input_area'>
         <input
           type='text'
           name='title'
@@ -54,7 +55,8 @@ class NoteCreateFrom extends React.Component{
           value={this.state.content}
           onChange={this.handleChange}  
         />
-        <button type='submit'> make that note! </button>
+        </div>
+        <button className='submit_btn' type='submit'> make that note! </button>
       </form>
     );
   }
