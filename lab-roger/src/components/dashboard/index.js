@@ -43,8 +43,10 @@ render(){
       <h1>dashboard</h1>
       <NoteCreateform handleAddNote={this.handleAddNote} />
       <h2>Note List</h2>
+      <div>
       <h3 className='note-title-header'>Note Title</h3>
       <h3 className='note-content-header'>Note Content</h3>
+      </div>
       <NoteList notes={this.state.notes} delete_note={this.handleDeleteNote}/>
     </div>
 

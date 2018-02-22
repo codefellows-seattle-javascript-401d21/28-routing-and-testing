@@ -8,7 +8,7 @@ class NoteList extends React.Component {
   }
   render() {
     return (
-      <ul>
+      <ul className='notes-list'>
         {
           this.props.notes.map((note, index) => {
           

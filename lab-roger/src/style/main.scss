@@ -1,16 +1,12 @@
-ul {
-  border: 1px solid black;
-}
+
+
 input {
   width: 400px;
   height: 40px;
   font-size: 24px;
-}
-h1 {
-  font-family: 'Times New Roman', Times, serif;
-  text-align: center;
-  font-size: 200em;
-
+  background-color: gold;
+  color: black;
+  border: solid 2px black;
 }
 
 button {
@@ -18,30 +14,22 @@ button {
   width: 100px;
   border-radius: 5px;
   border: 1px solid black;
-  margin-left: 20px;
 
 }
-li p {
-  display: inline-flex;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-.thumbs{
-  float: right;
-  margin-right: 100px;
+
+h1 {
+  font-size: 150px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
-.error input {
-  border: 1px solid red;
+
+body {
+  background-color: gold;
+  color: black;
 }
-h3 {
+// .notes-list{
+//   display: inline;
+// }
+.note-title-header .note-content-header{
   display: inline;
-}
-.note-title-header {
-  margin-left: 50px;
-  margin-right: 100px;
-}
-h2 {
-  margin-left: 100px;
-display: inline;
 }
