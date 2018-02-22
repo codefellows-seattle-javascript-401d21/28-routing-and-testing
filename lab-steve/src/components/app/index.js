@@ -9,9 +9,7 @@ class App extends React.Component {
       <div className='application'>
         <BrowserRouter>
           <div>
-            <Route exact path='/' component={Landing} />
-            <Route exact path='/dashboard' component={Dashboard} />
-            <header>
+            <header className="header">
               <ul className="navbar">
                 <li>
                   <Link to="/">Landing</Link>
@@ -21,6 +19,8 @@ class App extends React.Component {
                 </li>
               </ul>
             </header>
+            <Route exact path='/' component={Landing} />
+            <Route exact path='/dashboard' component={Dashboard} />
           </div>
         </BrowserRouter>
       </div>
