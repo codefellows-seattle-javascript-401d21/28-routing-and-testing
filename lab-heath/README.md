@@ -1,5 +1,5 @@
 
-# LAB 27: Reddit Search Engine
+# LAB 28: Routing and Testing
 
 
 ### Installing and How to use.
@@ -10,7 +10,7 @@ next you need to have these scripts adjusted in your package.json file.
 
 ```javascript
 "scripts": {
-    "build": "webpack",
+    "test": "jest",
     "watch": "webpack-dev-server --inline --hot"
   },
   ```
@@ -31,10 +31,32 @@ once you have done that. you can go to your localhost:8080 and see your project 
 
 ## How to use
 
-you have 2 input boxes that will take in a string in the first box and an number in the 2nd box. this will let you search for an item in box 1 and limit the results in box 2.
+you have 2 input boxes that will take in a strings. this is a `title` and a `content`. you will have a button below that will submit the data into the app that will return an list item that will have the title, data made, and content.
 
-you will get a list of links with amount of thumbs up also.
+under all of them will have a button that will let you delete just that one item.
 
-if you fail to enter the correct info, the boxes will turn read and be greated with a lovly saying.
+## tests
 
+we test just to see if the this.state objects properties are what we want them to be.
 
+we are testing the dashboard which will hold all of our notes.
+```javascript
+describe('Dashboard', () => {
+  test('Testing initial state', () => {
+    let mountedDashboard = Enzyme.mount(<Dashboard />);
+    expect(mountedDashboard.state('notes')).toEqual([]);
+  });
+});
+```
+
+we are testing the NoteCreateForm and making sure we have the needed items on the this.state object.
+```javascript
+describe('NoteCreateForm', () => {
+  test('Testing initial state', () => {
+    let mountedNoteCreateForm = Enzyme.mount(<NoteCreateForm />);
+    expect(mountedNoteCreateForm.state('completed')).toEqual(false);
+    expect(mountedNoteCreateForm.state('content')).toEqual('');
+    expect(mountedNoteCreateForm.state('title')).toEqual('');
+  });
+});
+```
