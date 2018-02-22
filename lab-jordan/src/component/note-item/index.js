@@ -1,8 +1,7 @@
 import React from 'react';
-import NoteList from '../note-list/index.js';
 
 class NoteItem extends React.Component{
-   constructor(props){
+   constructor(props) {
      super(props);
   }
 
@@ -11,7 +10,7 @@ class NoteItem extends React.Component{
         <div>
           <h3>{this.props.note.title}</h3>
           <p>{this.props.note.content}</p>
-          <button>REMOVE</button>
+          <button id={this.props.note.id} onClick={this.props.handleRemoveNote}>REMOVE</button>
         </div>
     );
   }
