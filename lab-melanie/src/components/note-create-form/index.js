@@ -10,7 +10,7 @@ class NoteCreateForm extends React.Component {
       title: '',
     };
 
-    // Bind Handlers
+    // ----- Bind Handlers ----- //
     let memberFunctions = Object.getOwnPropertyNames(NoteCreateForm.prototype);
     for(let functionName of memberFunctions){
       if(functionName.startsWith('handle')){
@@ -18,7 +18,7 @@ class NoteCreateForm extends React.Component {
       }
     }
   }
-  // Handlers
+  // ----- Handlers ----- //
   handleSubmit(event) {
     event.preventDefault();
     this.props.handleAddNote(this.state);
@@ -45,20 +45,24 @@ class NoteCreateForm extends React.Component {
   render() {
     return (
       <form className='note-form' onSubmit={this.handleSubmit}>
-        <input
-          type='text'
-          name='title'
-          placeholder='Title'
-          value={this.state.title}
-          onChange={this.handleChange}
-        />
-        <input
-          type='text'
-          name='content'
-          placeholder='content'
-          value={this.state.content}
-          onChange={this.handleChange}
-        />
+        <fieldset>
+          <input
+            type='text'
+            name='title'
+            placeholder='Title'
+            value={this.state.title}
+            onChange={this.handleChange}
+          />
+        </fieldset>
+        <fieldset>
+          <input
+            className='content'
+            type='text'
+            name='content'
+            value={this.state.content}
+            onChange={this.handleChange}
+          />
+        </fieldset>
         <button type='submit'>Add Note</button>
       </form>
     );

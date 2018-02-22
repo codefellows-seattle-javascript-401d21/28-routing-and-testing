@@ -3,7 +3,6 @@ import uuidv1 from 'uuid/v1';
 
 import NoteCreateForm from '../note-create-form/index';
 import NoteList from '../note-list/index';
-// import NoteItem from '../note-item/index';
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -12,7 +11,7 @@ class Dashboard extends React.Component {
       notes: [],
     };
 
-    // Binding handlers
+    // ----- Bind handlers ----- //
     let memberFunctions = Object.getOwnPropertyNames(Dashboard.prototype);
     for(let functionName of memberFunctions) {
       if(functionName.startsWith('handle')) {
@@ -20,7 +19,7 @@ class Dashboard extends React.Component {
       }
     }
   }
-  // Handlers
+  // ----- Handlers ----- //
   handleAddNote(note){
     note.createdOn = new Date();
     note.id = uuidv1();
@@ -39,7 +38,7 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="dash">
         <h1>Note Dashboard</h1>
         <NoteCreateForm handleAddNote={this.handleAddNote} />
         <NoteList handleRemoveNote={this.handleRemoveNote} notes={this.state.notes}/>
