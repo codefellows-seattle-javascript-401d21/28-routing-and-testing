@@ -4,7 +4,7 @@ const HtmlPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  devtool: 'source-maps',
+  devtool: 'eval-source-maps',
   entry: `${__dirname}/src/main.js`,
 
   output: {
@@ -14,7 +14,7 @@ module.exports = {
   },
 
   plugins: [
-    new HtmlPlugin({template: `${__dirname}/src/index.html`}),
+    new HtmlPlugin(),
     new ExtractTextPlugin('bundle-[hash].css'),
   ],
 
@@ -30,5 +30,9 @@ module.exports = {
         loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader']),
       },
     ],
+  },
+
+  devServer: {
+    historyApiFallback: true,
   },
 };

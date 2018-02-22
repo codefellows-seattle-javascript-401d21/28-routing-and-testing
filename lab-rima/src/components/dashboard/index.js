@@ -7,8 +7,8 @@ class Dashboard extends React.Component{
   constructor(props){
     super(props);
 
-    this.status = {
-      notes = [],
+    this.state = {
+      notes: [],
     }
 
     let memberFunctions = Object.getOwnPropertyNames(Dashboard.prototype);
@@ -40,7 +40,7 @@ class Dashboard extends React.Component{
       <div className="dashboard">
         <h3>To Do List</h3>
         <NoteForm handleAddNote={this.handleAddNote} />
-        <NoteList handleRemoveNote={this.handleRemoveNote} />
+        <NoteList handleRemoveNote={this.handleRemoveNote} notes={this.state.notes} />
       </div>
     );
   }

@@ -4,8 +4,9 @@
   "description": "This is an assignment for cf-401",
   "main": "webpack.config.js",
   "scripts": {
+    "build": "webpack",
     "test": "jest --verbose",
-    "watch": "webpack-dev-server --inline --hot"
+    "watch": "webpack-dev-server --inline --hot --port 8888"
   },
   "keywords": [],
   "author": "Rima",
@@ -16,6 +17,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "eslint": "^4.18.1",
     "eslint-plugin-react": "^7.7.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "^2.30.1",
