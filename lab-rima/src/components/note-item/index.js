@@ -8,23 +8,15 @@ class NoteItem extends React.Component{
 
   render(){
     return(
-      <div className="note-item">
-        <ul>
-          {
-            this.props.notes.map(note => {
-              <li key={note.id}>
-                <p>{note.title}</p>
-                <p>{note.content}</p>
-                <button
-                  className="delete"
-                  onClick={this.props.handleRemoveNote(note)}>
-                  Delete
-                </button>
-              </li>
-            })
-          }
-        </ul>
-      </div>
+      <li key={this.props.note.id}>
+        <p>{this.props.note.title}</p>
+        <p>{this.props.note.content}</p>
+        <button
+          className="delete"
+          onClick={this.props.handleRemoveNote(this.props.note)}>
+          Delete
+        </button>
+      </li>
     );
   }
 }
