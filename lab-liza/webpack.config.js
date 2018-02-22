@@ -1,9 +1,9 @@
 'use strict';
-// Vinicio - this file will be run by node, before webpack.
 
 // Node (webpack.config.js) -> Webpack
 
 const HTMLPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpackConfig = module.exports = {};
 
 //---------------------------------------------------------
@@ -18,18 +18,35 @@ webpackConfig.output = {
 
 webpackConfig.plugins = [
     new HTMLPlugin(),
+    new ExtractTextPlugin('bundle.[hash].css')
 ];
 
 //---------------------------------------------------------
 
 webpackConfig.module = {
-  rules: [ // Vinicio - which files do we want to process?
+  rules: [
     {
       test: /\.js$/,
       exclude: /node_modules/,
       loader: 'babel-loader',
     },
-  ],
+    {
+      test:  /\.scss$/,
+      loader: ExtractTextPlugin.extract({
+        use: [
+          'css-loader',
+          'resolve-url-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              includePaths: [`${__dirname}/src/style`],
+            },
+          },
+        ],
+      }),
+    },
+  ]
 };
 //---------------------------------------------------------
 webpackConfig.devtool = 'eval-source-map';
