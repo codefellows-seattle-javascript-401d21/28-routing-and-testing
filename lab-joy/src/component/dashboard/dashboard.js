@@ -1,11 +1,12 @@
 import React from 'react';
-import ExpenseForm from '../expense-form/expense-form';
+import NoteCreateForm from '../note/note-create-form';
+import uuid from 'uuid';
 
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      expenses: [],
+      notes: [],
     };
 
     let memberFunctions = Object.getOwnPropertyNames(Dashboard.prototype);
@@ -16,24 +17,30 @@ class Dashboard extends React.Component {
     }
   }
 
-  handleAddExpense(expense) {
-    expense.createdOn = new Date();
-    expense.id = Math.random();
+  handleAddNote(note) {
+    note.createdOn = new Date();
+    note.id = uuid.v1();
+    note.editing = false;
+    note.completed = false;
 
     this.setState(previousState => {
-      return { expenses: [...previousState.expenses, expense] };
+      return { notes: [...previousState.notes, note] };
     });
+  }
+
+  handleRemoveNote(e) {
+    this.setState({ notes: this.state.notes.filter(note => note.id !== e.target.id )});
   }
 
   render() {
     return (
       <div>
         <h1>Dashboard</h1>
-        <ExpenseForm handleAddExpense={this.handleAddExpense} />
+        <NoteCreateForm handleAddNote={this.handleAddNote} />
         <ul>
           {
-            this.state.expenses.map((expense, index) =>
-              <li key={index}>{expense.name}:${expense.price}</li>
+            this.state.notes.map((note, index) =>
+              <li key={index}><b>{note.title}</b>: {note.content}</li>
             )
           }
         </ul>
