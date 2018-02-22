@@ -5,7 +5,7 @@ class Landing extends React.Component{
     return(
       <div>
         <h1>Welcome to the landing page!</h1>
-        <p>this is where information would go if I cared to put it in</p>
+        <p>go to the dashboard to make notes</p>
       </div>
     );
   }
