@@ -7,6 +7,12 @@ class App extends React.Component{
   render(){
     return(
       <div className='app'>
+        <nav>
+        <ul>
+          <li><a href="/">Landing</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+        </ul>
+        </nav>
         <BrowserRouter>
           <div>
             <Route exact path='/' component={Landing}/>
