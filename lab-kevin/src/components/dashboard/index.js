@@ -1,8 +1,10 @@
 'use strict';
 
 import React from 'react';
+import {Route} from 'react-router-dom';
 import Note_create_form from '../note-create-form/index.js';
 import Note_list from '../note-list/index.js';
+import Dash_nav from '../dash_nav/index.js';
 
 class Dashboard extends React.Component{
   constructor(props){
@@ -26,12 +28,14 @@ class Dashboard extends React.Component{
     return (
     <section className="dashboard">
       <h2>Said I'd like to know where you got the notion</h2>
-      <article className="note-create">
-        <Note_create_form update_notes={this.handleNoteUpdate} />
-      </article>
-      <article className="notes">
-        <Note_list notes={this.state.notes} remove_note={this.handleRemoveNote} />
-      </article>
+      <Dash_nav />
+      <Route path={`${this.props.match.path}/note-create`} 
+        render={() => 
+        (<Note_create_form update_notes={this.handleNoteUpdate} />)} />
+
+      <Route path ={`${this.props.match.path}/notes`}  
+        render={() => 
+        (<Note_list notes={this.state.notes} remove_note={this.handleRemoveNote} />)} />
     </section>
     );
   }

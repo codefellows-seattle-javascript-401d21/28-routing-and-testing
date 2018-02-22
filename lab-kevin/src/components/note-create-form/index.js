@@ -32,19 +32,20 @@ class Note_create_form extends React.Component{
 
   render(){
     return(
-      <form className="create-note-form" onSubmit={this.handleSubmit}>
-        <input name="title" 
-        onChange={this.handleChange}
-          value={this.state.title} 
-          placeholder="Title"/>
+      <section className="note-create">
+        <form className="create-note-form" onSubmit={this.handleSubmit}>
+          <input name="title" 
+          onChange={this.handleChange}
+            value={this.state.title} 
+            placeholder="Title"/>
 
-        <textarea name="content"
-        onChange={this.handleChange} 
-        value={this.state.content} 
-        placeholder="We've been sailing with a cargo
-Full of love and devotion"></textarea>
-        <button type="submit">Rock the Boat</button>
-      </form>
+          <textarea name="content"
+          onChange={this.handleChange} 
+          value={this.state.content} 
+          placeholder="We've been sailing with a cargo full of love and devotion"></textarea>
+          <button type="submit">Rock the Boat</button>
+        </form>
+      </section> 
     );
   }
 }

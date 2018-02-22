@@ -19,7 +19,7 @@ class App extends React.Component{
         <Header />
         <main>
           <Route exact path='/' component={Landing}/>
-          <Route exact path='/dashboard' component={Dashboard}/>
+          <Route path='/dashboard' component={Dashboard}/>
         </main>
         <Footer />
       </div>
