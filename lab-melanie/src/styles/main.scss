@@ -1,5 +1,5 @@
 $font-stack: Helvetica, sans-serif;
-$primary-color: rgb(94, 181, 252);
+$primary-color: rgb(102, 105, 107);
 $secondary-color: rgb(255, 255, 245);
 $tertiary-color: rgb(255, 211, 218);
 $button-text: rgb(252, 133, 152);
@@ -47,13 +47,11 @@ nav a {
 h1 {
   font-size: 50px;
   color: $secondary-color;
-  text-shadow: 1px 1px 2px grey;
 }
 
 .landing p {
   font-size: 20px;
   color: $tertiary-color;
-  text-shadow: 1px 1px 2px grey;
 }
 
 fieldset {
@@ -70,7 +68,7 @@ input {
 }
 
 input:focus {
-  border: 3px solid $button-text;
+  border: 5px solid $button-text;
 }
 
 .note-form button {
@@ -95,7 +93,6 @@ input:focus {
   margin-top: 50px;
   font-size: 30px;
   color: $secondary-color;
-  text-shadow: 1px 1px 2px grey;
 }
 
 .note-list li {
@@ -103,7 +100,6 @@ input:focus {
   list-style: none;
   font-size: 20px;
   color: $secondary-color;
-  text-shadow: 1px 1px 2px grey;
 }
 
 .note-item button {
