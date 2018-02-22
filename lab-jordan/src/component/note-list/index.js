@@ -1,13 +1,9 @@
 import React from 'react';
 import NoteItem from '../note-item/index.js';
 
-class NoteList extends React.Component{
-   constructor(props){
-     super(props);
-  }
-
-  render(){
-    return(
+class NoteList extends React.Component {
+  render() {
+    return (
         <ul>
           {
             this.props.notes.map((note, index) =>

@@ -1,11 +1,8 @@
 import React from 'react';
 
-class NoteItem extends React.Component{
-   constructor(props) {
-     super(props);
-  }
+class NoteItem extends React.Component {
 
-  render(){
+  render() {
     return(
         <div>
           <h3>{this.props.note.title}</h3>

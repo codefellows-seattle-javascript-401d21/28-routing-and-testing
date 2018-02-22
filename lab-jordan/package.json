@@ -4,7 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --verbose",
     "watch": "webpack-dev-server --inline --hot"
   },
   "keywords": [],
