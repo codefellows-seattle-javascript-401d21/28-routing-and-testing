@@ -4,18 +4,18 @@ import Dashboard from '../dashboard/dashboard';
 import Landing from '../landing/landing';
 
 class App extends React.Component {
-    render() {
-        return (
-            <div className='app'>
-                <BrowserRouter>
-                    <div>
-                        <Route exact path='/' component={Landing} />
-                        <Route exact path='/dashboard' component={Dashboard} />
-                    </div>
-                </BrowserRouter>
-            </div>
-        );
-    }
-};
+  render() {
+    return (
+      <div className='app'>
+        <BrowserRouter>
+          <div>
+            <Route exact path='/' component={Landing} />
+            <Route exact path='/dashboard' component={Dashboard} />
+          </div>
+        </BrowserRouter>
+      </div>
+    );
+  }
+}
 
 export default App;

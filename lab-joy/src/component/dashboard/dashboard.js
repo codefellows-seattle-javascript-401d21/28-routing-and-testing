@@ -1,5 +1,6 @@
 import React from 'react';
 import NoteCreateForm from '../note/note-create-form';
+import NoteList from '../note/notelist';
 import uuid from 'uuid';
 
 class Dashboard extends React.Component {
@@ -37,13 +38,7 @@ class Dashboard extends React.Component {
       <div>
         <h1>Dashboard</h1>
         <NoteCreateForm handleAddNote={this.handleAddNote} />
-        <ul>
-          {
-            this.state.notes.map((note, index) =>
-              <li key={index}><b>{note.title}</b>: {note.content}</li>
-            )
-          }
-        </ul>
+        <NoteList notes={this.state.notes} remove={this.handleRemoveNote} />
       </div>
     );
 
