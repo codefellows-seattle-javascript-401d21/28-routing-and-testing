@@ -1,5 +1,4 @@
 import React from 'react';
-import Dashboard from '../dashboard/index.js';
 import NoteItem from '../note-item/index.js';
 
 class NoteList extends React.Component{
@@ -13,7 +12,8 @@ class NoteList extends React.Component{
       {
         this.props.notes.map((note, index) =>
           <li key={index}>
-            <NoteItem note={note} index={index}/>
+            <NoteItem note={note}
+            handleRemoveNote={this.props.handleRemoveNote}/>
           </li>
         )
       }

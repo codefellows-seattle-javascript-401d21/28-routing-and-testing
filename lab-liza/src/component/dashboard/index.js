@@ -23,19 +23,16 @@ class Dashboard extends React.Component{
   // Member Function
   //------------------------------------------------------
   handleAddNote(note){
-    note.id = Math.random();
+    note.id = Math.random().toString();
 
     this.setState(previousState => {
       return {notes :[...previousState.notes,note]};
     });
   }
 
-  handleRemoveNote(note){
-    note.id = Math.random();
-
-    this.setState(previousState => {
-      return {notes :[...previousState.notes,note]};
-    });
+  handleRemoveNote(event){
+   let id = event.target.id;
+   this.setState({notes: this.state.notes.filter(note => note.id !== id)});
   }
   //------------------------------------------------------
   // Hooks
@@ -45,9 +42,10 @@ class Dashboard extends React.Component{
   render(){
     return(
       <div>
-        <h1>Dashboard</h1>
+        <h1>Dashboard Confessional</h1>
         <NoteCreateForm handleAddNote={this.handleAddNote}/>
-        <NoteList notes={this.state.notes}/>
+        <NoteList notes={this.state.notes}
+        handleRemoveNote={this.handleRemoveNote}/>
       </div>
     );
 
