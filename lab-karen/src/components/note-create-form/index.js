@@ -22,6 +22,7 @@ class NoteCreateForm extends React.Component{
   handleSubmit(event) {
     event.preventDefault();
     this.props.addNote(this.state);
+
     //clear form for next note
     this.setState({
       content: '',

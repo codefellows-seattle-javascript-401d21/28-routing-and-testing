@@ -21,15 +21,15 @@ class Dashboard extends React.Component{
     note.id = uuidv1();
     note.editing = false;
     note.completed = false;
-    note.content = '';
-    note.title = '';
+    note.content = note.content;
+    note.title = note.title;
 
     this.setState(previousState => {
       return {notes: [...previousState.notes, note]};
     });
   }
 
-  removeNote(note) {
+  removeNote(event) {
     let id = event.target.value;
     this.setState({
       notes: this.state.notes.filter(note => note.id !== id),
