@@ -11,6 +11,7 @@ class Dashboard extends React.Component {
     };
     this.handleAddNote = this.handleAddNote.bind(this);
     this.handleDeleteNote = this.handleDeleteNote.bind(this);
+    this.handleUpdateNote = this.handleUpdateNote.bind(this);
   };
 
 // -----------------------------Handlers
@@ -35,6 +36,10 @@ handleDeleteNote(uuid) {
   })
 
 };
+handleUpdateNote() {
+  console.log('hello from update note');
+
+}
 
 
 render(){
@@ -47,7 +52,7 @@ render(){
       <h3 className='note-title-header'>Note Title</h3>
       <h3 className='note-content-header'>Note Content</h3>
       </div>
-      <NoteList notes={this.state.notes} delete_note={this.handleDeleteNote}/>
+      <NoteList notes={this.state.notes} delete_note={this.handleDeleteNote} update_note={this.handleUpdateNote}/>
     </div>
 
   );
