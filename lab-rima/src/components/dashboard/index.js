@@ -29,6 +29,14 @@ class Dashboard extends React.Component{
     });
   }
 
+  handleUpdateNote(note){
+    note.completed = true;
+    note.editing = false;
+    this.setState(previousState => {
+      return {notes: [...previousState.notes, note]};
+    });
+  }
+
   handleRemoveNote(note){
     this.setState(previousState => {
       return {notes: previousState.notes.filter(n => n.id !== note.id)};
@@ -40,7 +48,10 @@ class Dashboard extends React.Component{
       <div className="dashboard">
         <h3>To Do List</h3>
         <NoteForm handleAddNote={this.handleAddNote} />
-        <NoteList handleRemoveNote={this.handleRemoveNote} notes={this.state.notes} />
+        <NoteList
+          handleRemoveNote={this.handleRemoveNote}
+          handleUpdateNote={this.handleUpdateNote}
+          notes={this.state.notes} />
       </div>
     );
   }

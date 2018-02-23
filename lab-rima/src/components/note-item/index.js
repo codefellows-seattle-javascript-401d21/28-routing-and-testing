@@ -1,4 +1,6 @@
 import React from 'react';
+import Modal from '../modal/index';
+import { renderIf } from '../../lib/utils';
 
 
 class NoteItem extends React.Component{
@@ -28,6 +30,12 @@ class NoteItem extends React.Component{
           onClick={this.handleClick}>
           Delete
         </button>
+
+        {renderIf(this.props.note.editing,
+          <Modal close={() => this.props.note.editing = false}>
+            <NoteUpdateForm note={this.props.note} handleUpdateNote={this.props.handleUpdateNote} />
+          </Modal>
+        )}
       </li>
     );
   }
