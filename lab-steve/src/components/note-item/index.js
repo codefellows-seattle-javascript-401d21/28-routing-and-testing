@@ -11,7 +11,7 @@ class NoteItem extends React.Component {
         <h3>{this.props.note.title}</h3>
         <p>{this.props.note.content}</p>
         <button id={this.props.note.id} type="button" onClick={this.props.handleRemoveNote}>
-          Delete
+          delete
         </button>
       </li>
     );
