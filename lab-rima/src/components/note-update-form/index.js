@@ -6,6 +6,7 @@ class NoteUpdateForm extends React.Component{
     super(props);
 
     this.state = {
+      id: this.props.noteItem.state.note.id,
       title: '',
       content: '',
     };
@@ -30,7 +31,10 @@ class NoteUpdateForm extends React.Component{
     event.preventDefault();
     this.props.handleUpdateNote(this.state);
 
+    this.props.noteItem.setState({editing: false});
+
     this.setState({
+      id: this.props.noteItem.state.note.id,
       title: '',
       content: '',
     });
@@ -41,6 +45,7 @@ class NoteUpdateForm extends React.Component{
     this.props.close;
 
     this.setState({
+      id: this.props.noteItem.state.note.id,
       title: '',
       content: '',
     });
@@ -59,7 +64,7 @@ class NoteUpdateForm extends React.Component{
           name="title"
           value={this.state.title}
           onChange={this.handleChange}
-          placeholder={this.props.note.title}/>
+          placeholder={this.props.noteItem.state.note.title}/>
 
         <input
           className="content"
@@ -67,7 +72,7 @@ class NoteUpdateForm extends React.Component{
           name="content"
           value={this.state.content}
           onChange={this.handleChange}
-          placeholder={this.props.note.content}/>
+          placeholder={this.props.noteItem.state.note.content}/>
 
         <button
           className="update"

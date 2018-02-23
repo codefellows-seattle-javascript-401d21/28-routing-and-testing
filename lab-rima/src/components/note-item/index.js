@@ -1,11 +1,17 @@
 import React from 'react';
 import Modal from '../modal/index';
+import NoteUpdateForm from '../note-update-form/index';
 import { renderIf } from '../../lib/utils';
 
 
 class NoteItem extends React.Component{
   constructor(props){
     super(props);
+
+    this.state = {
+      note: this.props.note,
+      editing: false,
+    }
 
     let memberFunctions = Object.getOwnPropertyNames(NoteItem.prototype);
     for(let functionName of memberFunctions){
@@ -15,14 +21,32 @@ class NoteItem extends React.Component{
     }
   }
 
+  handleGetSetState() {
+    return {
+      state: this.state,
+      setState: this.setState.bind(this)
+    }
+  }
+
   handleClick(event) {
     event.preventDefault();
     this.props.handleRemoveNote(this.props.note);
   }
 
+  handleDoubleClick(event) {
+console.log(this.props.note.id);
+    console.log('dblclick');
+    console.log(event);
+    event.preventDefault();
+    this.setState({editing: true});
+  }
+
   render(){
     return(
-      <li key={this.props.note.id}>
+      <li
+        key={this.props.note.id}
+        onDoubleClick={this.handleDoubleClick}
+      >
         <p>{this.props.note.title}</p>
         <p>{this.props.note.content}</p>
         <button
@@ -31,10 +55,8 @@ class NoteItem extends React.Component{
           Delete
         </button>
 
-        {renderIf(this.props.note.editing,
-          <Modal close={() => this.props.note.editing = false}>
-            <NoteUpdateForm note={this.props.note} handleUpdateNote={this.props.handleUpdateNote} />
-          </Modal>
+        {renderIf(this.state.editing,
+          <NoteUpdateForm noteItem={this.handleGetSetState()} handleUpdateNote={this.props.handleUpdateNote} />
         )}
       </li>
     );
