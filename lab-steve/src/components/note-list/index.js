@@ -11,8 +11,8 @@ class NoteList extends React.Component {
       <div>
         {this.props.notes.length ? (
           <div>
-            <h2>Notes</h2>
-            <ul>
+            <h2 className='section-title'>Notes</h2>
+            <ul className='notes-list'>
               {this.props.notes.map(note => (
                 <NoteItem
                   key={note.id}
