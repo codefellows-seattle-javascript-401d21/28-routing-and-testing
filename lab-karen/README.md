@@ -1,4 +1,4 @@
-## Lab 29-component-composition
+## Lab 28-routing-and-testing
 
 This project creates an app with React components and routing that incorporates front-end testing according to the following structure.
 ```
@@ -8,7 +8,6 @@ App
    NoteCreateForm
    NoteList
      NoteItem
-       NoteUpdateForm
 ```
 
 **App component**
@@ -36,25 +35,15 @@ OnComplete the NoteForm adds a note to the applicaton state
 **NoteList Component**
 displays an unordered list of NoteItem components
 
-**NoteUpdateForm**
-Create a NoteUpdateForm component that inherits a note through props and onSubmit is able to update the App's state with an updated note.
 
 **NoteItem Component**
-- Default View displays the note content and a delete button
-  - if the user clicks the delete button, the note is removed from the application state
-  - if the user double-clicks the note content, it switches to the edit view
-
-- Edit View displays the NoteUpdateForm and a Cancel Button
-  - onSubmit or click of the cancel button in NoteUpdateForm it should switch back to the default view
+should display the notes content and title
+should display a delete button
+onClick the note should be removed from the application state
 
 **Testing**
-*NoteCreateForm*
-- Test your onChange handler
-- Test your onSubmit handler
-*NoteItem*
-- Test the NoteItem's ability to remove a note from the App's state
-*NoteUpdateForm*
-- Test the NoteUpdatesForm's ability to update a note in the App's state
+Test Dashboard initial state
+Test NoteCreateForm initial state
 
 **Installation & Set-Up**
 Fork this repository and install on your machine using git clone. Switch to the lab-karen folder.
