@@ -1,9 +1,14 @@
-div {
+body {
   margin: 60px;
+  background-color: #aaa;
 }
 
 h1 {
-  text-align: center
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
 }
 
 button {
@@ -20,6 +25,40 @@ button:focus {
   outline:0;
 }
 
-.search-form {
-  border-color: red;
+.app {
+  padding: 30px;
+  background-color: #bbb;
+}
+
+.turtlesay {
+  margin-left: 100px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: #fff;
+}
+
+a:hover {
+  color: blue;
+}
+
+input {
+  width: 200px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.noteContent {
+  text-align: center;
+}
+
+.deleteButton {
+  margin-left: 300px;
+  background-color: red;
 }
