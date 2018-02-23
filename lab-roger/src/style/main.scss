@@ -1,0 +1,35 @@
+
+
+input {
+  width: 400px;
+  height: 40px;
+  font-size: 24px;
+  background-color: gold;
+  color: black;
+  border: solid 2px black;
+}
+
+button {
+  height: 40px;
+  width: 100px;
+  border-radius: 5px;
+  border: 1px solid black;
+
+}
+
+h1 {
+  font-size: 150px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+body {
+  background-color: gold;
+  color: black;
+}
+// .notes-list{
+//   display: inline;
+// }
+.note-title-header .note-content-header{
+  display: inline;
+}
