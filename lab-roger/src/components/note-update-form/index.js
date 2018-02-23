@@ -14,6 +14,11 @@ class NoteUpdateForm extends React.Component {
   }
   handleSubmit(e){
     e.preventDefault();
+    if(e.target.name === 'cancel'){
+      this.setState({
+        editing: false
+      })
+    }
 
     console.log('this state in handlesumbit on update form', this.state)
     this.props.update_note(this.state);
@@ -47,7 +52,7 @@ class NoteUpdateForm extends React.Component {
           onChange={this.handleChange}
         />
         <button type='submit' name='update' id={this.state.id} onClick={this.handleSubmit}>Update</button>
-        <button type='submit' name='cancel' id={this.state.id} onClick={() => this.state.editing = false}>Cancel</button>
+        <button type='submit' name='cancel' id={this.state.id} onClick={this.handleSubmit}>Cancel</button>
       </form>
     )
   }

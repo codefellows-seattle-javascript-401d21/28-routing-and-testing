@@ -50,34 +50,13 @@ handleUpdateNote(note) {
     this.state.notes[index].title = note.title;
     this.state.notes[index].content = note.content;
     this.state.notes[index].editing = false;
-    return this.state;
+    return;
 
   })
   
-  
-  
-  
-  
-  
   console.log('previous state', this.state.notes);
   console.log('index ', index);
-  // let noteToEdit = this.state.notes.filter(x => x.id === id);
-  // noteToEdit[0].title = note.title;
-  // noteToEdit[0].content = note.content;
-  // this.setState(previousState => {
-
-  //   return {notes: [...previousState.notes, noteToEdit]}
-  // })
-
-  
-  
-  
-  
-  // console.log('note to edit', noteToEdit)
-
-  // console.log('id in update dashboard', id);
-  // console.log('hello from update note in dashboard', note);
-
+ 
 }
 
 
