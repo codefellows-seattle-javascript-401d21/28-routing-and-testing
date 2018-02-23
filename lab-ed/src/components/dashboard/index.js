@@ -1,54 +1,43 @@
-import React from 'react';
+import React from 'react'
+import NoteCreateForm from '../note-create-form/index.js'
+import NoteList from '../note-list/index.js'
+import uuidv1 from 'uuid/v1'
 
-class Dashboard extends React.Component{
+class Dashboard extends React.Component {
    constructor(props){
-     super(props);
+     super(props)
      this.state = {
-       expenses: [],
-     };
-    //----------------------------------------------------
-    // Binding Handlers
-    //----------------------------------------------------
-    let memberFunctions = Object.getOwnPropertyNames(Dashboard.prototype);
-    for(let functionName of memberFunctions){
-      if(functionName.startsWith('handle')){
-        this[functionName] = this[functionName].bind(this);
-      }
-    }
-    //----------------------------------------------------
-   }
-  //------------------------------------------------------
-  // Member Function
-  //------------------------------------------------------
-  handleAddExpense(expense){
-    expense.createdOn = new Date();
-    expense.id = Math.random();
+       notes: [],
+     }
+
+    this.handleAddNote = this.handleAddNote.bind(this)
+    this.handleRemoveNote = this.handleRemoveNote.bind(this)
+
+  }
+  
+  handleAddNote(note){
+    note.id = uuidv1().toString()
 
     this.setState(previousState => {
-      return {expenses :[...previousState.expenses,expense]};
-    });
+      return {notes :[...previousState.notes, note]}
+    })
   }
-  //------------------------------------------------------
-  // Hooks
-  //------------------------------------------------------
 
-  
+  handleRemoveNote(event){
+   let id = event.target.id
+   this.setState({notes: this.state.notes.filter(note => note.id !== id)})
+  }
+
   render(){
     return(
       <div>
-        <h1>Dashboard</h1>
-        <ExpenseForm handleAddExpense={this.handleAddExpense}/>
-        <ul>
-          {
-            this.state.expenses.map((expense,index) =>
-              <li key={index}>{expense.name}:${expense.price}</li>
-            )
-          }
-        </ul>
+        <h1>Add a note</h1>
+        <NoteCreateForm handleAddNote={this.handleAddNote}/>
+        <NoteList notes={this.state.notes}
+        handleRemoveNote={this.handleRemoveNote}/>
       </div>
-    );
+    )
 
   }
 }
-
-export default Dashboard;
+export default Dashboard
