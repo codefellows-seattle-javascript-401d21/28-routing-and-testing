@@ -24,7 +24,7 @@ class NoteCreateForm extends React.Component {
   }
 
   handleChange(event) {
-    let {name,value} = event.target
+    let {name, value} = event.target
     this.setState({
       [name]: value,
       created: true,
@@ -32,8 +32,7 @@ class NoteCreateForm extends React.Component {
   }
 
   render() {
-    return(
-      
+    return( 
       <form className='note-form' onSubmit={this.handleSubmit}>
         <input
           type='text'
