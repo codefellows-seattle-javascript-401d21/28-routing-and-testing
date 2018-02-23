@@ -1,5 +1,6 @@
 import React from 'react';
 import NoteUpdateForm from '../note-update-form/index';
+import { renderIf } from '../../lib/utils';
 
 class NoteItem extends React.Component {
   constructor(props){
@@ -22,6 +23,9 @@ class NoteItem extends React.Component {
   }
   handleDoubleClink(e){
     e.preventDefault();
+    this.setState({
+      editing: true,
+    })
     
     this.props.update_note();
 
@@ -29,12 +33,15 @@ class NoteItem extends React.Component {
   render() {
     // console.log('in note item render')
     return (
-      // <p>hi</p>
-      <li onDoubleClick={this.handleDoubleClink}><p>{this.state.title}</p><p>{this.state.content}</p> 
-      <button type='submit' id={this.state.id} onClick={this.handleSubmit}>Delete Note</button>
-      </li>
-     
-    );
+   
+        !this.state.editing ?
+         <li onDoubleClick={this.handleDoubleClink}><p>{this.state.title}</p><p>{this.state.content}</p> 
+         <button type='submit' id={this.state.id} onClick={this.handleSubmit}>Delete Note</button>
+         </li>
+        :
+        <NoteUpdateForm note={this.state} update_note={this.props.update_note} />
+ 
+  );
   }
 };
 

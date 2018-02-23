@@ -7,7 +7,7 @@ class NoteUpdateForm extends React.Component {
       title: this.props.note.title,
       content: this.props.note.content,
       id: this.props.note.id
-      
+
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -16,11 +16,12 @@ class NoteUpdateForm extends React.Component {
     e.preventDefault();
 
     console.log('this state in handleSumbit', this.state)
-    this.props.handleUpdateNote(this.state);
+    this.props.update_note(this.state);
     this.setState({
       title: '',
       content: '',
       id: '',
+      editing: false
     });
   }
 
@@ -46,7 +47,7 @@ class NoteUpdateForm extends React.Component {
           onChange={this.handleChange}
         />
         <button type='submit' name='update' id={this.state.id} onClick={this.handleSubmit}>Update</button>
-        <button type='submit' name='cancel' id={this.state.id} onClick={this.handleSubmit}>Cancel</button>
+        <button type='submit' name='cancel' id={this.state.id} onClick={() => this.state.editing = false}>Cancel</button>
       </form>
     )
   }

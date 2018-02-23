@@ -36,7 +36,7 @@ handleDeleteNote(uuid) {
   })
 
 };
-handleUpdateNote() {
+handleUpdateNote(note) {
   console.log('hello from update note');
 
 }
