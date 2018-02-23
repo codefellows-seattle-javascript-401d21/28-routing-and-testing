@@ -13,7 +13,7 @@ class NoteCreateForm extends React.Component{
   }
   handleSubmit(e){
     e.preventDefault();
-    console.log('this state in handleSumbit', this.state)
+    console.log('this state in handleSumbit create form', this.state)
     this.props.handleAddNote(this.state);
     this.setState({
       title: '',

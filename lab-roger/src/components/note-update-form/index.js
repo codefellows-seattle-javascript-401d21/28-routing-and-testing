@@ -15,7 +15,7 @@ class NoteUpdateForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
 
-    console.log('this state in handleSumbit', this.state)
+    console.log('this state in handlesumbit on update form', this.state)
     this.props.update_note(this.state);
     this.setState({
       title: '',

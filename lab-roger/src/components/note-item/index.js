@@ -27,7 +27,7 @@ class NoteItem extends React.Component {
       editing: true,
     })
     
-    this.props.update_note();
+    this.props.update_note(this.state);
 
   }
   render() {
