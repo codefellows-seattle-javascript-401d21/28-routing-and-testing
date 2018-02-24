@@ -8,7 +8,7 @@ class Modal extends React.Component {
       <section className="modal">
         {this.props.children}
       </section>
-    )
+    );
   }
 }
 

@@ -42,7 +42,8 @@ class NoteUpdateForm extends React.Component{
 
   handleCancel(event){
     event.preventDefault();
-    this.props.close;
+
+    this.props.noteItem.setState({editing: false});
 
     this.setState({
       id: this.props.noteItem.state.note.id,
