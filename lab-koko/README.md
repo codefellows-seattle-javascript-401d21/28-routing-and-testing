@@ -1,9 +1,9 @@
-# Lab 27 - Reddit Search Engine
+# Lab 28 - Component Composition
 
 **Author**: Koko Kassa
 
 ## Overview
-Creating a search engine for Reddit using webpack and react
+Creating a Note app that adds and deletes notes.
 
 #### Configuration
 * `package.json`
