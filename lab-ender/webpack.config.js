@@ -1,31 +1,35 @@
 'use strict';
 
 const HtmlPlugin = require('html-webpack-plugin');
+const webpackConfig = module.exports = {};
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = {
-  // devtool: 'eval',
-  entry: `${__dirname}/src/main.js`,
-  output: {
-    path: `${__dirname}/build`,
-    filename: 'bundle-[hash].js',
-    publicPath: '/',
-  },
-  plugins: [
-    new HtmlPlugin({template: `${__dirname}/src/index.html`}),
-    new ExtractTextPlugin('bundle-[hash].css'),
+webpackConfig.entry = `${__dirname}/src/main.js`;
+
+webpackConfig.output = {
+  filename: 'bundle.[hash].js',
+  path: `${__dirname}/build`,
+};
+
+webpackConfig.plugins = [
+  new HtmlPlugin(),
+  new ExtractTextPlugin('bundle-[hash].css'),
+];
+
+webpackConfig.module = {
+  rules: [
+    {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader',
+    },
+    {
+      test: /\.scss$/,
+      loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader']),
+    },
   ],
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-      },
-      {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader']),
-      },
-    ],
-  },
+};
+
+webpackConfig.devServer = {
+  historyApiFallback: true,
 };
