@@ -1,0 +1,115 @@
+/******************************************************************************/
+/*                     Main Styles                                            */
+$slightopacityblack: rgba(249, 2, 2, 0.7);
+$black: rgb(215, 93, 93);
+$pink: #f08c8c;
+$white: #fff;
+$green: rgb(24, 181, 24);
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  background-color: pink;
+  width: 100%;
+  margin: 0;
+
+  .application {
+    margin: auto;
+
+    .section-title {
+      color: $green;
+    }
+
+    header h1 {
+      font-size: 40px;
+      margin: 10px;
+      padding: 10px;
+    }
+
+    header ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: $slightopacityblack;
+
+      .navlink {
+        display: block;
+        color: $white;
+        text-align: center;
+        padding: 10px 12px;
+        text-decoration: none;
+      }
+
+      li .navlink:hover {
+        background-color: $green;
+      }
+
+      .navlink-left {
+        float: left;
+      }
+
+      .navlink-right {
+        font-family: Helvetica, sans-serif;
+        font-size: 12px;
+        float: right;
+      }
+    }
+
+    .notes-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 20px;
+        border: 1px solid $slightopacityblack;
+        border-radius: 2px;
+        padding: 20px;
+
+        h3 {
+          margin-top: 0;
+        }
+      }
+    }
+
+    form {
+
+      input {
+        border-radius: 15px;
+        margin: 12px 5px;
+        padding: 20px 30px;
+        box-sizing: border-box;
+        background-color: $white;
+        color: $green;
+      }
+    }
+
+
+    button:hover {
+      background-color: $pink;
+    }
+
+    button {
+      border-radius: 2px;
+      background-color: $slightopacityblack;
+      border: none;
+      color: $white;
+      padding: 8px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 12px;
+      font-family: 'Tajawal', sans-serif;
+
+    }
+
+  }
+}
+
+
+
+
+
+
